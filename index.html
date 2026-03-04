@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mind Body Balance — Holistic Wellness Coaching</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #7c9070;
+    --sage-light: #a8bc9e;
+    --cream: #f5f0e8;
+    --warm-white: #faf8f4;
+    --earth: #8b6f47;
+    --dark: #2a2a2a;
+    --muted: #7a7a7a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 20px 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(250,248,244,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(124,144,112,0.15);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 300; letter-spacing: 2px;
+    color: var(--dark);
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--muted); text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--sage); }
+  .nav-cta {
+    background: var(--sage); color: white;
+    padding: 10px 24px; border-radius: 40px;
+    font-size: 13px; letter-spacing: 0.5px;
+    text-decoration: none; transition: background 0.3s;
+  }
+  .nav-cta:hover { background: var(--earth); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+  .hero-left {
+    padding: 80px 60px;
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--sage); margin-bottom: 24px;
+    padding: 6px 16px; border: 1px solid var(--sage-light);
+    border-radius: 20px; width: fit-content;
+    animation: fadeUp 0.8s ease forwards;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 5vw, 72px);
+    font-weight: 300; line-height: 1.1;
+    color: var(--dark); margin-bottom: 24px;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+  .hero-title em { font-style: italic; color: var(--sage); }
+  .hero-sub {
+    font-size: 16px; line-height: 1.8;
+    color: var(--muted); max-width: 420px;
+    margin-bottom: 40px;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero-btns {
+    display: flex; gap: 16px; align-items: center;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+  .btn-primary {
+    background: var(--sage); color: white;
+    padding: 16px 36px; border-radius: 50px;
+    font-size: 14px; letter-spacing: 0.5px;
+    text-decoration: none; transition: all 0.3s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--earth); transform: translateY(-2px); }
+  .btn-secondary {
+    color: var(--dark); font-size: 14px;
+    text-decoration: none; display: flex; align-items: center; gap: 8px;
+    transition: gap 0.3s;
+  }
+  .btn-secondary:hover { gap: 14px; }
+
+  .hero-right {
+    background: var(--cream);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-img-placeholder {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #d4e4ce 0%, #c8d9b8 40%, #b8c9a5 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 16px;
+  }
+  .hero-circle {
+    width: 280px; height: 280px; border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(255,255,255,0.6);
+    animation: float 6s ease-in-out infinite;
+  }
+  .hero-circle-inner {
+    width: 220px; height: 220px; border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; color: var(--dark);
+    text-align: center; line-height: 1.5;
+  }
+  .floating-badge {
+    position: absolute; bottom: 60px; left: -20px;
+    background: white; border-radius: 16px;
+    padding: 16px 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    animation: float 4s ease-in-out infinite 1s;
+  }
+  .badge-num { font-size: 28px; font-weight: 500; color: var(--sage); }
+  .badge-txt { font-size: 12px; color: var(--muted); }
+
+  /* STATS */
+  .stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    background: var(--sage);
+    padding: 40px 60px;
+  }
+  .stat { text-align: center; color: white; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px; font-weight: 300;
+  }
+  .stat-label { font-size: 13px; opacity: 0.8; letter-spacing: 1px; }
+
+  /* SERVICES */
+  .services { padding: 100px 60px; }
+  .section-tag {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--sage); margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px); font-weight: 300;
+    margin-bottom: 60px; max-width: 500px; line-height: 1.2;
+  }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
+  }
+  .service-card {
+    padding: 40px; background: var(--cream); border-radius: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
+  .service-icon {
+    width: 50px; height: 50px; border-radius: 12px;
+    background: var(--sage); display: flex; align-items: center;
+    justify-content: center; margin-bottom: 24px; font-size: 22px;
+  }
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 400; margin-bottom: 12px;
+  }
+  .service-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+  /* BOOKING SECTION */
+  .booking {
+    padding: 100px 60px;
+    background: var(--cream);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .booking-left .section-title { margin-bottom: 20px; }
+  .booking-desc { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 32px; }
+  .booking-features { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .booking-features li {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 14px; color: var(--dark);
+  }
+  .check {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--sage); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; flex-shrink: 0;
+  }
+
+  .booking-form {
+    background: white; border-radius: 24px;
+    padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  }
+  .form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; margin-bottom: 8px;
+  }
+  .form-sub { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; font-size: 12px; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 6px; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 12px 16px;
+    border: 1px solid #e8e4dc; border-radius: 10px;
+    font-family: 'DM Sans', sans-serif; font-size: 14px;
+    background: var(--warm-white); color: var(--dark);
+    transition: border-color 0.3s; outline: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--sage);
+  }
+  .form-group textarea { height: 90px; resize: none; }
+  .form-submit {
+    width: 100%; padding: 16px;
+    background: var(--sage); color: white; border: none;
+    border-radius: 50px; font-size: 14px; letter-spacing: 0.5px;
+    cursor: pointer; transition: all 0.3s; font-family: 'DM Sans', sans-serif;
+  }
+  .form-submit:hover { background: var(--earth); transform: translateY(-2px); }
+
+  /* TESTIMONIALS */
+  .testimonials { padding: 100px 60px; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 60px; }
+  .testimonial-card {
+    padding: 32px; border: 1px solid #e8e4dc; border-radius: 20px;
+    transition: border-color 0.3s;
+  }
+  .testimonial-card:hover { border-color: var(--sage-light); }
+  .stars { color: var(--earth); margin-bottom: 16px; font-size: 14px; }
+  .testimonial-text { font-size: 14px; line-height: 1.8; color: var(--muted); margin-bottom: 20px; font-style: italic; }
+  .testimonial-author { font-size: 13px; font-weight: 500; }
+  .testimonial-role { font-size: 12px; color: var(--muted); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark); color: white;
+    padding: 60px; text-align: center;
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 300; letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+  .footer-sub { font-size: 13px; color: rgba(255,255,255,0.4); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  /* Success message */
+  .success-msg {
+    display: none; text-align: center; padding: 20px;
+    color: var(--sage); font-size: 15px;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">MIND BODY BALANCE</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#booking">Book</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+  </ul>
+  <a href="#booking" class="nav-cta">Book a Session</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">✦ Holistic Wellness Coaching</div>
+    <h1 class="hero-title">Restore your <em>mind,</em> body & soul</h1>
+    <p class="hero-sub">Personalized coaching to help you find balance, reduce stress, and build sustainable wellbeing — at your own pace.</p>
+    <div class="hero-btns">
+      <a href="#booking" class="btn-primary">Book Free Consultation</a>
+      <a href="#services" class="btn-secondary">Explore Services →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-placeholder">
+      <div class="hero-circle">
+        <div class="hero-circle-inner">Mind<br>Body<br>Balance</div>
+      </div>
+    </div>
+    <div class="floating-badge">
+      <div class="badge-num">200+</div>
+      <div class="badge-txt">Lives transformed</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">200+</div><div class="stat-label">Clients Helped</div></div>
+  <div class="stat"><div class="stat-num">5★</div><div class="stat-label">Average Rating</div></div>
+  <div class="stat"><div class="stat-num">8yr</div><div class="stat-label">Experience</div></div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-tag">✦ What I Offer</div>
+  <h2 class="section-title">Programs designed for your journey</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🧘</div>
+      <div class="service-name">1-on-1 Coaching</div>
+      <p class="service-desc">Personalized sessions focused on your unique goals, challenges, and growth areas.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌿</div>
+      <div class="service-name">Stress & Anxiety Relief</div>
+      <p class="service-desc">Evidence-based techniques to reduce stress, calm your nervous system, and regain clarity.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✨</div>
+      <div class="service-name">Holistic Wellness Plan</div>
+      <p class="service-desc">A complete mind-body roadmap covering nutrition, movement, sleep, and mindset.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="booking-left">
+    <div class="section-tag">✦ Book a Session</div>
+    <h2 class="section-title">Ready to start your transformation?</h2>
+    <p class="booking-desc">Book your free 30-minute discovery call and let's figure out the best path forward for you.</p>
+    <ul class="booking-features">
+      <li><span class="check">✓</span> Instant confirmation to your email</li>
+      <li><span class="check">✓</span> No waiting, no back and forth</li>
+      <li><span class="check">✓</span> First consultation is completely free</li>
+      <li><span class="check">✓</span> Flexible online or in-person sessions</li>
+    </ul>
+  </div>
+  <div class="booking-form">
+    <div class="form-title">Book Your Session</div>
+    <div class="form-sub">Fill in your details and we'll confirm instantly</div>
+    <div id="bookingForm">
+      <div class="form-group">
+        <label>FULL NAME</label>
+        <input type="text" placeholder="Your name">
+      </div>
+      <div class="form-group">
+        <label>EMAIL ADDRESS</label>
+        <input type="email" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label>SESSION TYPE</label>
+        <select>
+          <option>Free Discovery Call (30 min)</option>
+          <option>1-on-1 Coaching Session</option>
+          <option>Stress & Anxiety Relief</option>
+          <option>Holistic Wellness Plan</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>PREFERRED DATE & TIME</label>
+        <input type="datetime-local">
+      </div>
+      <div class="form-group">
+        <label>ANYTHING YOU'D LIKE ME TO KNOW?</label>
+        <textarea placeholder="Optional..."></textarea>
+      </div>
+      <button class="form-submit" onclick="submitForm()">Book My Session →</button>
+    </div>
+    <div class="success-msg" id="successMsg">
+      🌿 You're booked! Check your email for confirmation.
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-tag">✦ Client Stories</div>
+  <h2 class="section-title">Real results, real people</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"I came in completely burned out. After 3 months of coaching I feel like a completely different person. The booking process was so smooth too!"</p>
+      <div class="testimonial-author">Sarah M.</div>
+      <div class="testimonial-role">Marketing Executive</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"The holistic approach is what sets this apart. It's not just talking — it's a real structured plan that actually works for your lifestyle."</p>
+      <div class="testimonial-author">James T.</div>
+      <div class="testimonial-role">Entrepreneur</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Booked my first session online at midnight and got a confirmation email straight away. Small thing but it made me trust the whole process."</p>
+      <div class="testimonial-author">Priya K.</div>
+      <div class="testimonial-role">Teacher</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">MIND BODY BALANCE</div>
+  <div class="footer-sub">© 2025 Mind Body Balance. All rights reserved.</div>
+</footer>
+
+<script>
+  function submitForm() {
+    document.getElementById('bookingForm').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  }
+
+  // Smooth scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .testimonial-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
